@@ -1,5 +1,6 @@
 package com.example.demo.departments;
 
+import com.example.demo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,16 @@ public class DepartmentController {
         this.departmentservice = departmentservice;
     }
 
+    @GetMapping
+    public List<Department> getDepartments(){
+
+        return departmentservice.getDepartments();
+    }
+    @GetMapping("/{id}")
+    public Department getDepartment(@PathVariable String id){
+        return departmentservice.getDepartment(id);
+
+    }
     @PostMapping
     public Department addDepartment(@RequestBody Department department){
         return departmentservice.addDepartment(department);
@@ -26,16 +37,12 @@ public class DepartmentController {
         return getDepartments();
     }
 
-    @GetMapping
-    public List<Department> getDepartments(){
 
-        return departmentservice.getDepartments();
-    }
+
 
     @DeleteMapping ("/{id}")
-    public List<Department> deletDepartment(@PathVariable int id){
-        departmentservice.deletDepartment(id);
-        return getDepartments();
+    public void deleteDepartment(@PathVariable String id){
+        departmentservice.deleteDepartment(id);
 
     }
 }

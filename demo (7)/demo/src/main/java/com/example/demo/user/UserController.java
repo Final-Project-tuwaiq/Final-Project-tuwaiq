@@ -31,9 +31,10 @@ public class UserController {
         return userservice.createUser(user);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable String id){
-        userservice.deleteUser(id);
+    @PostMapping ("/s")
+    public List<User> addUsers(@RequestBody List<User> users){
+        userservice.addUsers(users);
+        return getUsers();
     }
 
     @PutMapping("/{id}")
@@ -41,10 +42,9 @@ public class UserController {
         return userservice.updateUser(id, data);
     }
 
-    @PostMapping ("/s")
-    public List<User> addUsers(@RequestBody List<User> users){
-        userservice.addUsers(users);
-        return getUsers();
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id){
+        userservice.deleteUser(id);
     }
 
 

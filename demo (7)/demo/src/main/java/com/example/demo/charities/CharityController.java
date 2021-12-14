@@ -30,6 +30,12 @@ public class CharityController {
         return charityservice.createCharity(charity);
     }
 
+    @PostMapping ("/s")
+    public List<Charity> addCharities(@RequestBody List<Charity> charities){
+        charityservice.addCharities(charities);
+        return getCharities();
+    }
+
     @DeleteMapping("/{id}")
     public void deleteCharity(@PathVariable String id){
         charityservice.deleteCharity(id);
@@ -40,9 +46,9 @@ public class CharityController {
         return charityservice.updateCharity(id, data);
     }
 
-    @PostMapping ("/s")
-    public List<Charity> addCharities(@RequestBody List<Charity> charities){
-        charityservice.addCharities(charities);
-        return getCharities();
-    }
+
+//    @PutMapping("{C_Id/dep/{d_id")
+//    public Charity addDeptoCharity(@RequestBody @PathVariable int C_Id, @PathVariable int d_id){
+//        return charityservice.addDeptoCharity(C_Id,d_id);
+//    }
 }

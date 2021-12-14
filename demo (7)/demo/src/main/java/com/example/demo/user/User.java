@@ -1,6 +1,10 @@
 package com.example.demo.user;
 
+import com.example.demo.Donations.Donation;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -13,7 +17,14 @@ public class User {
     private String phoneNumber;
     private String password;
     private String location;
+//    @OneToMany(mappedBy = "user",cascade =CascadeType.ALL)
+//    private List<Donation> donations=new ArrayList<>();
 
+
+
+
+    public User() {
+    }
 
     public User(int id, String firstName, String lastName, String phoneNumber, String password, String location) {
         this.id = id;
@@ -22,9 +33,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.location = location;
-    }
-
-    public User() {
+//        this.donations = donations;
     }
 
     public int getId() {
@@ -74,5 +83,28 @@ public class User {
     public void setLocation(String location) {
         this.location = location;
     }
+
+//    public List<Donation> getDonations() {
+//        return donations;
+//    }
+//
+//    public void setDonations(List<Donation> donations) {
+//        this.donations = donations;
+//    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", location='" + location + '\'' +
+//                ", donations=" + donations +
+                '}';
+    }
+
+
 }
 

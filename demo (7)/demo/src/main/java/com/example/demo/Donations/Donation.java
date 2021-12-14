@@ -1,5 +1,8 @@
 package com.example.demo.Donations;
 
+import com.example.demo.departments.Department;
+import com.example.demo.user.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,16 +16,29 @@ public class Donation {
     private String date;
     private String state;
 
-    public Donation(int id, String description, int quantity, String date, String state) {
+
+@ManyToOne(fetch = FetchType.EAGER, optional = true)
+@JoinColumn(name = "department_id")
+private Department department;
+
+@ManyToOne(fetch = FetchType.EAGER, optional = true)
+@JoinColumn(name = "user_id")
+private User user;
+
+    public Donation() {
+    }
+
+    public Donation(int id, String description, int quantity, String date, String state, Department department, User user) {
         this.id = id;
         this.description = description;
         this.quantity = quantity;
         this.date = date;
         this.state = state;
+        this.department = department;
+        this.user = user;
     }
 
-    public Donation() {
-    }
+
 
     public int getId() {
         return id;
@@ -62,5 +78,21 @@ public class Donation {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

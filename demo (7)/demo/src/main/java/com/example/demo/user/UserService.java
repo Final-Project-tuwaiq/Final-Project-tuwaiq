@@ -11,12 +11,12 @@ public class UserService {
     public UserService(userRepository userrepository) {
         this.userrepository = userrepository;
     }
+
     public List<User> getUsers(){
         return userrepository.findAll();
     }
     public User getUser(String id){
         Integer user_id = Integer.parseInt(id);
-
         return userrepository.findById(user_id).orElse(null);
     }
     public void addUsers(List<User> users){
@@ -34,12 +34,8 @@ public class UserService {
     }
     public User updateUser(String id, User data) {
         Integer user_id = Integer.parseInt(id);
-
         User user = userrepository.findById(user_id).orElse(null);
-
         if (user != null) {
-
-
             user.setFirstName(data.getFirstName());
             user.setLastName(data.getLastName());
             user.setPhoneNumber(data.getPhoneNumber());

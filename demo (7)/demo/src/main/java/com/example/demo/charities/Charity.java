@@ -1,6 +1,11 @@
 package com.example.demo.charities;
 
+import com.example.demo.departments.Department;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "charities")
@@ -14,12 +19,16 @@ public class Charity {
     private String location;
 
 
-    public Charity(int id, String name, String phoneNumber, String password, String location) {
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Department> departments = new ArrayList<>();
+
+    public Charity(int id, String name, String phoneNumber, String password, String location, List<Department> departments) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.location = location;
+        this.departments = departments;
     }
 
     public Charity() {
@@ -65,6 +74,18 @@ public class Charity {
         this.location = location;
     }
 
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+//
+//    public void adddep(Department dep){
+//        departments.add(dep);
+//    }
+
     @Override
     public String toString() {
         return "Charity{" +
@@ -73,6 +94,7 @@ public class Charity {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", location='" + location + '\'' +
+                ", departments=" + departments +
                 '}';
     }
 }
