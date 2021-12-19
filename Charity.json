@@ -1,0 +1,31 @@
+[  { "name": "Charity in Riyadh",
+    "phoneNumber": "0501103402",
+    "password": "123456",
+    "location": "Riyadh",
+    "departments" :[{"id" : 1},
+                  {"id" :3}]
+    },
+    {
+    "name": "Al-Qassim Charity",
+    "phoneNumber": "04003002",
+    "password": "654321",
+    "location": "Qassim ",
+    "departments" :[{"id" : 1},
+      {"id" :2}]
+  },    
+   {
+    "name": "Charity in Makkah",
+    "phoneNumber": "039300023",
+    "password": "654321",
+    "location": "Makkah",
+    "departments" :[{"id" : 1},
+      {"id" :4}]
+  },     {
+    "name": "Charity in Jeddah",
+    "phoneNumber": "0501103406",
+    "password": "123456",
+    "location": "Jeddah", 
+    "departments" :[{"id" : 1},
+      {"id" :2}]
+  }
+]

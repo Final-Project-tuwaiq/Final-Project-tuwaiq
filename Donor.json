@@ -1,0 +1,43 @@
+[{
+              
+    "firstName": "Ghadeer",
+    "lastName": "mansour",
+    "gender":"Female",
+    "phoneNumber": "0501103402",
+    "password": "123456",
+    "location": "Riyadh"
+    
+},
+{
+"firstName": "Razan",
+"lastName": "Mohammed",
+"gender":"Female",
+"phoneNumber": "0500000000",
+"password": "123456",
+"location": "Makkah"
+},    
+ {
+"firstName": "Mansour",
+"lastName": "Abdulrahmman",
+"gender":"Male",
+"phoneNumber": "0500000001",
+"password": "123456",
+"location": "Riyadh"
+},    
+ {
+"firstName": "Nouf",
+"lastName": "Khaled",
+"gender":"Female",
+"phoneNumber": "0500000002",
+"password": "123456",
+"location": "Jeddah"
+}
+, {
+"firstName": "Ahmad",
+"lastName": "Naser",
+"gender":"Male",
+"phoneNumber": "0500000003",
+"password": "123456",
+"location": "Qassim"
+}
+]

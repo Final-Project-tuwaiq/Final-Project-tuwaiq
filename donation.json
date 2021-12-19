@@ -1,0 +1,28 @@
+[{
+    "description":"I have clothes and I want to donate",
+    "quantity":2,
+    "date":"2021-11-05",
+    "img":"",
+    "state":"",
+    "department" : {"id":1},
+    "donor" : {"id":1}
+},
+{
+    "description":"I have food and I want to donate",
+    "quantity":1,
+    "date":"2021-11-04",
+    "state":"",
+    "img":"",
+    "department" : {"id":3},
+    "donor" : {"id":2}
+},
+{
+    "description":" I want to donate",
+    "quantity":3,
+    "date":"2021-11-04",
+    "state":"",
+    "img":"",
+    "department" : {"id":3},
+    "donor" : {"id":2}
+}
+]
