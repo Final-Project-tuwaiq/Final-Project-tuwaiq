@@ -1,6 +1,7 @@
 package com.example.demo.Donors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -28,11 +29,12 @@ public class DonorService {
             donorrepository.save(donors.get(i));}
     }
 
-    //use to post and add one donor
-    public Donor createDonor(Donor donor){
+    //use to post and add one donor //register
+    public Donor createDonor( Donor donor){
         return donorrepository.save(donor);
-
     }
+
+
 
     // use delete o remove user
     public void deleteDonor(String id ){
@@ -49,7 +51,7 @@ public class DonorService {
             donor.setFirstName(data.getFirstName());
             donor.setLastName(data.getLastName());
             donor.setPhoneNumber(data.getPhoneNumber());
-            donor.setPassword(data.getPassword());
+
             donor.setLocation(data.getLocation());
             donorrepository.save(donor);
         }

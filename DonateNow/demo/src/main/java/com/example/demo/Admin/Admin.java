@@ -1,12 +1,13 @@
-package com.example.demo.Donors;
+package com.example.demo.Admin;
+
 import com.example.demo.User.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-
 @Entity
-@Table(name = "donors")
-public class Donor {
+@Table(name = "admin")
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,31 +15,21 @@ public class Donor {
     private String lastName;
     @Column(unique = true)
     private String phoneNumber;
-    private String location;
-    private String gender;
-
 
     @OneToOne (fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name ="user_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnoreProperties({"userName","password","role"})
     private User user;
 
-    public Donor() {
+    public Admin() {
     }
 
-    // use Constructor
-
-    public Donor(int id, String firstName, String lastName, String phoneNumber, String location, String gender) {
+    public Admin(int id, String firstName, String lastName, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-
-        this.location = location;
-        this.gender = gender;
     }
-
-    //use get and set
 
     public int getId() {
         return id;
@@ -80,33 +71,13 @@ public class Donor {
         this.user = user;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-//use toString()
     @Override
     public String toString() {
-        return "Donor{" +
+        return "Admin{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", location='" + location + '\'' +
-                ", gender='" + gender + '\'' +
                 '}';
     }
 }
-

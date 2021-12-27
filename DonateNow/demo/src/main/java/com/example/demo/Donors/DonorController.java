@@ -28,7 +28,7 @@ public class DonorController {
         return donorservice.getDonor(id);
     }
 
-    //post one donor
+    //post one donor //register
     @PostMapping
     public Donor createDonor(@RequestBody Donor donor){
         return donorservice.createDonor(donor);

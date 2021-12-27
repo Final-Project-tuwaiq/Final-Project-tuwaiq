@@ -30,6 +30,7 @@ public class CharityController {
     //post or add charity
     @PostMapping
     public Charity createCharity(@RequestBody Charity charity){
+        System.out.println(charity);
         return charityservice.createCharity(charity);
     }
 

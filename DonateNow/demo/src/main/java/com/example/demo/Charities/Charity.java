@@ -1,6 +1,8 @@
 package com.example.demo.Charities;
 
 import com.example.demo.Departments.Department;
+import com.example.demo.User.User;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,20 +15,23 @@ public class Charity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Column(unique = true)
     private String phoneNumber;
-    private String password;
     private String location;
 
     //relationship many to many  between the charities and departments
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Department> departments = new ArrayList<>();
+    @OneToOne (fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name ="user_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user;
 
     //use Constructor
     public Charity(int id, String name, String phoneNumber, String password, String location, List<Department> departments) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.password = password;
         this.location = location;
         this.departments = departments;
     }
@@ -59,13 +64,6 @@ public class Charity {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getLocation() {
         return location;
@@ -83,14 +81,21 @@ public class Charity {
         this.departments = departments;
     }
 
-  //use toString
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    //use toString
     @Override
     public String toString() {
         return "Charity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
                 ", location='" + location + '\'' +
                 ", departments=" + departments +
                 '}';

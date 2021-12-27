@@ -25,8 +25,8 @@ public class CharityService {
 
     //get charity
     public Charity getCharity(String id){
-        Integer user_id = Integer.parseInt(id);
-        return charityrepository.findById(user_id).orElse(null);
+        Integer charity_id = Integer.parseInt(id);
+        return charityrepository.findById(charity_id).orElse(null);
     }
 
     //post or add all charity
@@ -65,7 +65,6 @@ public class CharityService {
         if (charity != null) {
             charity.setName(data.getName());
             charity.setPhoneNumber(data.getPhoneNumber());
-            charity.setPassword(data.getPassword());
             charity.setLocation(data.getLocation());
             charityrepository.save(charity);
         }

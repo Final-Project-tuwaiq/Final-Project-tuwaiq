@@ -1,9 +1,10 @@
-package com.example.demo.Donors;
+package com.example.demo.Admin;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DonorRepository extends JpaRepository<Donor, Integer> {
+public interface AdminRepository extends JpaRepository<Admin, Integer> {
 
 }
