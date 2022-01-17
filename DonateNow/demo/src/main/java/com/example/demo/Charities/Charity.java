@@ -36,6 +36,14 @@ public class Charity {
         this.departments = departments;
     }
 
+    public Charity(int id, String name, String phoneNumber, String location, User user) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+        this.user = user;
+    }
+
     public Charity() {
     }
 

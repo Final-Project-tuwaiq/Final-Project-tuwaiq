@@ -1,7 +1,6 @@
 package com.example.demo.Donors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -57,4 +56,9 @@ public class DonorService {
         }
         return donor;
 
-    }}
+    }
+
+    public Donor getDonorByUser(String userId) {
+        return donorrepository.findByUser_id(Long.parseLong(userId));
+    }
+}

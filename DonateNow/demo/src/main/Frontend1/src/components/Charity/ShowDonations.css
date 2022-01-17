@@ -1,0 +1,91 @@
+/* .card-charity {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: auto;
+  margin-left: 15%;
+  margin-right: 15%;
+  grid-gap: 10px 20px;
+} */
+
+
+.donationBox {
+  width: auto;
+  border-radius: 12px;
+  margin-top: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+
+.donationBox_s {
+  background-color: #365b6d;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 15px 20px;
+  display: grid;
+  row-gap: 8px;
+  width: 100%;
+}
+.donationBox_text {
+  display: grid;
+  width: 980px;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  padding: 10px 30px 10px 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+  /* cursor: pointer; */
+  transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98),
+    box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+  background-color: rgb(218, 218, 212);
+}
+.donationBox_text:hover {
+  transform: scale(1.2);
+  box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
+}
+.donationBox__picture {
+  max-width: 100%;
+  width: 80px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
+}
+
+table {
+  width: 130%;
+  border-collapse: collapse;
+  color: rgb(80, 79, 79);
+}
+td {
+  width: 3500px;
+}
+.div1 {
+  width: 500px;
+  word-wrap: break-word;
+}
+.donationBox_text span {
+  color: #365b6de0;
+}
+
+
+
+.leaderboard {
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.Img-correct {
+  height: 30px;
+  width: 30px;
+  border: none;
+  margin-left: 120px;
+}
+
+
+.icon-xd {
+  font-size: 1.5rem !important;
+  margin-right: 100%;
+  margin-top: -1%;
+  color: #979294;
+  -webkit-text-fill-color: transparent;
+}
+
+

@@ -1,5 +1,7 @@
 package com.example.demo.Charities;
 
+import com.example.demo.Admin.Admin;
+import com.example.demo.Donations.Donation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +29,16 @@ public class CharityController {
 
     }
 
+    @GetMapping ("/{id}/donations")
+    public List<Donation> getCharityDonations(@PathVariable int id){
+        return charityservice.getCharityDonations(id);
+    }
+    // to calcute
+    @GetMapping("totalCharities")
+    public int totalCharities(){
+        return charityservice.getCharities().size();
+    }
+
     //post or add charity
     @PostMapping
     public Charity createCharity(@RequestBody Charity charity){
@@ -51,6 +63,11 @@ public class CharityController {
     @PutMapping("/{id}")
     public Charity updateCharity(@PathVariable String id, @RequestBody Charity data){
         return charityservice.updateCharity(id, data);
+    }
+
+    @GetMapping("byUser/{userid}")
+    public Charity getCharityByUser(@PathVariable String userid){
+        return charityservice.getCharityByUser(userid);
     }
 
 

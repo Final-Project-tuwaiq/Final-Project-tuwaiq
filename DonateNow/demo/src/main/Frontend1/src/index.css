@@ -1,0 +1,39 @@
+
+.error-msg {
+    color: red;
+    text-align: center;
+    font-size: 12px;
+  }
+
+a{
+    cursor: pointer;
+}
+
+a:hover{
+    color: green;
+}
+
+.grid-col{
+    display: grid;
+    grid-template-rows: auto 220px auto;
+    gap: 5px;
+}
+
+.text-dep{
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.grid-five{
+    display: grid;
+    grid-template-rows: auto 70px auto auto auto;}
+
+.date-input{
+    width: 130px;
+    height: 16px;
+    color: black;
+}
+
+.lable-date{
+    font-size: 13px;
+}

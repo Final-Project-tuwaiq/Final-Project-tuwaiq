@@ -2,6 +2,7 @@ package com.example.demo.User;
 
 
 
+import com.example.demo.Donations.Donation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,16 @@ public class UserController {
     @PutMapping("/{id}")
     public void updateUser(@PathVariable String id){
         userService.updateUser(id);
+    }
+
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable String id){
+        return userService.getUser(id);
+    }
+
+    @GetMapping("getRoleId/{userId}/{role}")
+    public int getRoleId(@PathVariable String userId, @PathVariable String role){
+        return userService.getRoleId(userId, role);
     }
 
 }

@@ -24,6 +24,12 @@ public class User {
     public User() {
     }
 
+    public User(long id, String userName, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+    }
+
     public User(long id, String userName, String password, String role, Donor donor, Admin admin, Charity charity) {
         this.id = id;
         this.userName = userName;
@@ -69,8 +75,6 @@ public class User {
     }
 
 
-
-
     @Override
     public String toString() {
         return "User{" +
@@ -78,8 +82,6 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-
                 '}';
     }
-
 }

@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+.box-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 5%;
+  grid-gap: 10px 20px;
+}
+.Title {
+  margin-top: 7%;
+  font-size: 55px;
+  margin-bottom: -3.5%;
+  margin-left: 143px;
+  align-items: center;
+  color: #686962;
+  font-family: "IBM Plex Mono", monospace;
+}
+.Title span {
+  color: #365b6d;
+  font-size: 50px;
+  font-size: 50px;
+  font-family: "Russo One", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap");
+
+#container {
+  box-shadow: 0 15px 30px 1px grey;
+  background-image: linear-gradient(60deg, #365b6d 0%, #485563 100%);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 1.5em auto;
+  height: 250px;
+  width: 450px;
+}
+
+.product-details {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  padding: 25px;
+  height: 100%;
+  float: left;
+  width: 40%;
+  margin-left: 7%;
+}
+
+#container .product-details h1 {
+  font-family: "Bebas Neue", cursive;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  font-size: 21px;
+  color: #ecece7;
+  padding: 0%;
+  margin-bottom: -20%;
+}
+
+#container .product-details > p {
+  font-family: "EB Garamond", serif;
+  text-align: center;
+  font-size: 14px;
+  color: #a8a8a8;
+  margin-top: -4%;
+}
+
+.product-image {
+  transition: all 0.3s ease-out;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  float: right;
+  width: 45%;
+  display: inline-block;
+}
+
+#container img {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  background: rgba(48, 46, 46, 0.733);
+  font-family: "Bree Serif", serif;
+  transition: all 0.3s ease-out;
+  transform: translateX(-100%);
+  position: absolute;
+  line-height: 1.8;
+  text-align: left;
+  font-size: 105%;
+  cursor: no-drop;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.info h2 {
+  text-align: center;
+}
+.product-image:hover .info {
+  transform: translateX(0);
+}
+
+.info h3 {
+  margin-top: 30%;
+  transition: 0.3s ease;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Yellowtail", cursive;
+}
+/* .info h3:hover {
+  transform: translateX(50px) scale(1.3);
+} */
+
+.product-image:hover img {
+  transition: all 0.3s ease-out;
+}
+.product-image:hover img {
+  transform: scale(1.2, 1.2);
+}
+
+.button-t {
+  background: linear-gradient(to left, #eaec5e2a, #365b6d 80%);
+  width: 125px;
+  height: 30px;
+  border: 1px solid #ecece7;
+  color: #afb1a5;
+  padding: 1%;
+  font-size: 18px;
+  align-items: left;
+  display: flex;
+  text-align: center;
+  padding-left: 8%;
+}
+
+.div {
+  margin-bottom: 30%;
+}
+
+progress {
+  display: inline-block;
+  width: 190px;
+  height: 20px;
+  padding: 15px 0 0 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  border-radius: 15px;
+  text-align: left;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+progress::-webkit-progress-bar {
+  height: 11px;
+  width: 150px;
+  margin: 0 auto;
+  background-color: #ccc;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px rgb(31, 30, 30) inset;
+}
+progress::-webkit-progress-value {
+  display: inline-block;
+  float: left;
+  height: 11px;
+  margin: 0px -10px 0 0;
+  background: linear-gradient(to left, #eaec5e81, #365b6d 80%);
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px rgb(114, 107, 107) inset;
+}
+progress:after {
+  margin: -26px 0 0 -7px;
+  padding: 0;
+  display: inline-block;
+  float: left;
+  content: attr(value);
+}

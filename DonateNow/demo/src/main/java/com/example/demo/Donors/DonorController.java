@@ -22,10 +22,24 @@ public class DonorController {
 
     }
 
+//    @GetMapping("byUser/{userId}")
+//    public int getDonorByUser(@PathVariable String userId){
+//        return donorservice.getDonorByUser(userId);
+//    }
+
     //Get one donor by ID
     @GetMapping("/{id}")
     public Donor getDonor(@PathVariable String id){
         return donorservice.getDonor(id);
+    }
+
+    @GetMapping("totalDonors")
+    public int totalDonors(){
+        return donorservice.getDonors().size();
+    }
+    @GetMapping("byUser/{userid}")
+    public Donor getDonorByUser(@PathVariable String userid){
+        return donorservice.getDonorByUser(userid);
     }
 
     //post one donor //register

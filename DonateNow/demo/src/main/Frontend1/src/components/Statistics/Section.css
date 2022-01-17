@@ -1,0 +1,43 @@
+.icons-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 2fr));
+  padding-top: 6rem;
+  margin-top: 0%;
+  margin-left: 20%;
+  margin-right: 18%;
+}
+.icons-container h3{
+  color: #365b6d;
+}
+
+.di {
+  background-color: #365b6d;
+  padding-bottom: 10%;
+}
+.Icon-S {
+
+  color: #365b6d;
+  /* font-size: 2rem !important; */
+  width: 32px;
+  height: 40px;
+  margin-top: 10%;
+}
+
+.icons-container .icons {
+  /* border: 0.2rem solid #000000; */
+  /* background-color: #ffffff; */
+  background-color: #e9e9df;
+  border-radius: 1.5rem;
+  size: 0px;
+  text-align: center;
+}
+
+.icons-container .icons h3 {
+  font-size: 2rem;
+}
+
+.icons-container .icons p {
+  font-size: 1.3rem;
+  color: rgb(80, 77, 77);
+}

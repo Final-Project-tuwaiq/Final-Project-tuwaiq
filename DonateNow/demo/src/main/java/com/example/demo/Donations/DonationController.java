@@ -55,7 +55,27 @@ public class DonationController {
     @PutMapping("/{id}")
     public Donation updateDonation(@PathVariable String id, @RequestBody Donation data){
         return donationService.updateDonation(id, data);
-    }}
+    }
+
+    //to calculate all donations
+    @GetMapping ("totalDonations")
+    public int totalDonations(){
+        return donationService.totalDonations();
+    }
+//get donation by donor
+    @GetMapping ("donor/{id}")
+    public List<Donation> getDonortDonation(@PathVariable int id){
+        return donationService.getDonorDonation(id);
+    }
+
+    @PutMapping("/{donationId}/{charityId}")
+    public Donation addCharityToDonation(@PathVariable int donationId, @PathVariable int charityId) {
+        return donationService.addCharityToDonation(donationId,charityId);
+    }
+
+
+}
+
 
 
 
