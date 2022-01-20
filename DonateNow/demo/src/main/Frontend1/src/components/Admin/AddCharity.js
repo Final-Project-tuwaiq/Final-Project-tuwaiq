@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 import {
   FormGroup,
@@ -16,24 +17,21 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-
-
-
 const useStyles = makeStyles({
-    container: {
-      width: "50%",
-      margin: "5% 0 0 25%",
-      "& > *": {
-        marginTop: 20,
-      },
+  container: {
+    width: "50%",
+    margin: "5% 0 0 25%",
+    "& > *": {
+      marginTop: 20,
     },
-  });
+  },
+});
 
 function AddCharity() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const classes = useStyles();
-  let departmentId;
- 
+  const [departmentId, setDepartmentId] = useState([]);
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [name, setName] = useState();
@@ -47,7 +45,7 @@ function AddCharity() {
       token: state.usersReducer.token,
     };
   });
-   const config = {
+  const config = {
     headers: { Authorization: `Bearer ${state.token}` },
   };
 
@@ -63,7 +61,7 @@ function AddCharity() {
     setName(e.target.value);
     console.log(name);
   };
- 
+
   const changePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
     console.log(phoneNumber);
@@ -73,27 +71,18 @@ function AddCharity() {
     console.log(location);
   };
 
-  const changeDepartments = (e) => {
-    setDepartments(e.target.value)
-   if(departments ==="kll"){
-     departmentId=1
-   }
-   if(departments ==="dll"){
-     departmentId=2
-   }
-   if(departments ==="ddf"){
-     departmentId=3
-   }
-   if(departments ==="fkf"){
-     departmentId=4
-   }
-   if(departments ==="flfl"){
-     departmentId=5
-   }
-   
-   console.log(departments)
+  useEffect(() => {
+    axios
+      .get("http://localhost:8081/departments")
+      .then((res) => {
+        setDepartments(res.data);
+      })
 
- };
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const getUser = () => {
     const theuser = {
       userName: username,
@@ -109,23 +98,27 @@ function AddCharity() {
         console.log("i am in if i geted match");
       } else {
         axios
-          .post("http://localhost:8081/charities", {
-            name: name,
-            phoneNumber: phoneNumber,
-            location: location,
-     
-            departments :[{"id" : departmentId},
-                  {"id" :4}],
-         
-            user: { id: res.data.id },
-          },config)
-          
+          .post(
+            "http://localhost:8081/charities",
+            {
+              name: name,
+              phoneNumber: phoneNumber,
+              location: location,
+
+              departments: departmentId,
+              user: { id: res.data.id },
+            },
+            config
+          )
 
           .then((res) => {
             if (res.data === null) {
               console.log("Sorry, the phone number is taken");
             } else {
               console.log(res.data);
+              swal({
+                icon: "success",
+              });
               navigate("/admin");
             }
           })
@@ -138,42 +131,62 @@ function AddCharity() {
 
   return (
     <FormGroup className={classes.container}>
-      <Typography variant="h4">  
-            <Link to="/admin">
-              <ArrowBackIcon />
-            </Link>
-          Add Charity</Typography>
+      <Typography variant="h4">
+        <Link to="/admin">
+          <ArrowBackIcon />
+        </Link>
+        Add Charity
+      </Typography>
       <FormControl>
         <InputLabel htmlFor="my-input">Name</InputLabel>
-        <Input name="name" id="my-input" onChange={changeName}/>
+        <Input name="name" id="my-input" onChange={changeName} />
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Username</InputLabel>
-        <Input name="username" id="my-input" onChange={changeUserName}/>
+        <Input name="username" id="my-input" onChange={changeUserName} />
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Phone</InputLabel>
-        <Input name="phone" id="my-input" onChange={changePhoneNumber}/>
+        <Input name="phone" id="my-input" onChange={changePhoneNumber} />
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Passoword</InputLabel>
-        <Input name="phone" id="my-input"onChange={changePassword} />
+        <Input name="phone" id="my-input" onChange={changePassword} />
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Location</InputLabel>
-        <Input name="phone" id="my-input"onChange={changeLocation} />
+        <Input name="phone" id="my-input" onChange={changeLocation} />
+      </FormControl>
+      <InputLabel htmlFor="my-input">Departments</InputLabel>
+
+      <FormControl>
+        <select
+          className="typeDropdown"
+          multiple
+          onChange={(e) => {
+            console.log(e.target.value);
+            setDepartmentId([...departmentId, { id: e.target.value }]);
+          }}
+        >
+          {departments !== undefined
+            ? departments.map((e) => {
+                return (
+                  <option key={e.id} value={e.id}>
+                    {" "}
+                    {e.name}{" "}
+                  </option>
+                );
+              })
+            : ""}
+        </select>
       </FormControl>
       <FormControl>
-          <InputLabel htmlFor="my-input">Departments</InputLabel>
-        <Input name="phone" id="my-input"onChange={changeDepartments} />
-      </FormControl>
-      <FormControl>
-        <Button variant="contained" color="primary" onClick={getUser} >
+        <Button variant="contained" color="primary" onClick={getUser}>
           Add Charity
         </Button>
       </FormControl>
     </FormGroup>
   );
-};
+}
 
 export default AddCharity;

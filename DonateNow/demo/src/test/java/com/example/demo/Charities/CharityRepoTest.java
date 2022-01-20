@@ -55,13 +55,14 @@ public class CharityRepoTest {
         assertEquals(charity.getName(), newName );
     }
 
-//    @Test
-//    void itShouldDeleteCharity() {
-//        User user = new User(1L, "gh1", "123456");
-//        Charity charity = new Charity(1, "Ghadeer", "0546999999", "Jeddah", user);
-//        charityrepository.save(charity);
-//        charityrepository.delete(charity);
-//        Charity result = charityrepository.findById(charity.getId()).orElse(null);
-//        assertNull(result);
-//    }
+    @Test
+    void itShouldDeleteCharity() {
+        User user = new User(1L, "gh1", "123456");
+        userRepository.save(user);
+        Charity charity = new Charity(1, "Ghadeer", "0546999999", "Jeddah", user);
+        charityrepository.save(charity);
+        charityrepository.delete(charity);
+        Charity result = charityrepository.findById(charity.getId()).orElse(null);
+        assertNull(result);
+    }
 }

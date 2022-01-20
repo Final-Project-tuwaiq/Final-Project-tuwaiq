@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import swal from 'sweetalert';
+
 
 function Departments() {
   const navigate = useNavigate();
@@ -53,6 +55,41 @@ function Departments() {
                     <p>____________</p>
                     <p className="information">{e.description}</p>
                     <div className="fixd-button">
+                    {!state.isLoggedIn && (
+                    <button
+                          type="button"
+                          className="button-t"
+                          onClick={() => {
+                            swal("Please Login or Register", {
+                              buttons: {
+                                cancel: "Log In",
+                                catch: {
+                                  text: "Sign Up",
+                                  value: "catch",
+                                },
+                                defeat: "Cancel",
+                              },
+                            })
+                            .then((value) => {
+                              switch (value) {
+                             
+                                case "defeat":
+                                  
+                                  break;
+                             
+                                case "catch":
+                                  swal(navigate("/SignUp"));
+                                  break;
+                             
+                                default:
+                                  swal(navigate("/login"));
+                              }
+                            });
+                          }}
+                        >
+                         Add Donation
+                     
+                        </button>)}
                       {state.isLoggedIn && state.UserType === "donor" && (
                         <button
                           type="button"
@@ -61,7 +98,7 @@ function Departments() {
                             setId(e.id);
                           }}
                         >
-                          Donate Now
+                         Add Donation
                           {/* <span className="fas fa-chevron-right"></span> */}
                         </button>
                       )}
@@ -86,9 +123,9 @@ function Departments() {
                       <h3>
                         <b>
                           {" "}
-                          Every act of
+                          Number of donations: 
                           <br></br>
-                          kindness is charity
+                         
                         </b>
                       </h3>
                       <h3>
@@ -106,7 +143,8 @@ function Departments() {
             })
           : "Wait"}
       </div>
-      {id ? navigate("/Department/" + id) : ""} <div className="div"></div>
+      {id ? navigate("/Department/" + id) : ""} 
+      {/* <div className="div"></div> */}
     </div>
   );
 }

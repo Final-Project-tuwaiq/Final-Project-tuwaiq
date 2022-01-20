@@ -13,6 +13,9 @@ import DonationsAccepted from "./components/Charity/DonationsAccepted";
 import Admin from "./components/Admin/Admin";
 import AddCharity from "./components/Admin/AddCharity";
 import EditCharity from "./components/Admin/EditCharity";
+import Footer from "./components/Footer/Footer";
+import CuntactUs from "./components/CuntactUs/CuntactUs";
+import Departments from "./components/Departments/Departments";
 
 
 
@@ -24,6 +27,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin/add" element={<AddCharity/>} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/footer" element={<Footer/>} />
+
+          <Route path="/cuntact" element={<CuntactUs/>} />
+          <Route path="/department" element={<Departments />} />
+
+
           <Route path="/edit/:id" element={<EditCharity />} />
           <Route path="/donationsaccepted" element={<DonationsAccepted />} />
           <Route path="/Department/:id" element={<Donation />} />

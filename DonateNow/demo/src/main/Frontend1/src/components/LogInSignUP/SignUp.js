@@ -5,12 +5,15 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { login } from "../../reducers/Login/action";
 import { useDispatch } from "react-redux";
+import swal from 'sweetalert';
+
+
+
 
 function SignUp() {
   const navigate = useNavigate();
-
+const[error,setError]=useState()
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [firstName, setFirstName] = useState();
@@ -61,6 +64,7 @@ function SignUp() {
     axios.post("http://localhost:8081/users", theuser).then((res) => {
       if (res.data === null) {
         console.log(" geted match");
+        
       } else {
         axios
           .post("http://localhost:8081/donors", {
@@ -76,11 +80,23 @@ function SignUp() {
               console.log("Sorry, the phone number is taken");
             } else {
               console.log(res.data);
-              navigate("/Login");
+              swal({
+                title: "Successfully Registered",
+                icon: "success",
+                button: "Go To Login"
+               
+              })
+              .then(() => {
+                swal(navigate("/login"));
+              });
+      
+           
             }
           })
           .catch((err) => {
             console.log(err);
+            setError("This  userName or phone number  has already been taken")
+           
           });
       }
     });
@@ -181,10 +197,10 @@ function SignUp() {
             Male
           </label>
           </div>
-
+      
        
             <br />
-        
+             {/* <p className="p-error">kkkk{error}</p> */}
           <button onClick={getUser} type="button" className="button-b">
             Sign Up
           </button>

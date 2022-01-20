@@ -5,10 +5,15 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import swal from 'sweetalert';
+import { useNavigate } from "react-router-dom";
+
 
 
 function Donation() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const user_type = localStorage.getItem("user_type");
   
 
@@ -49,7 +54,7 @@ function Donation() {
           description: "" + description + "",
           quantity: quantity,
           date: "" + date + "",
-          state: "in",
+          state: "Pending",
           department: { id: id },
           donor: { id: state.currentUser.id  },
         },
@@ -57,7 +62,24 @@ function Donation() {
       )
       .then((res) => {
         console.log(res.data);
+        swal({
+          title: "Thank You",
+          text: `إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا اللَّهَ }
+            
+            { قَرْضًا حَسَنًا يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيمٌ`,
+          icon: "success",
+          button: "ok"
+         
+        })
+        .then(() => {
+          swal(navigate("/"));
+        });
+
+      })
+      .catch((err) => {
+        console.log(err);
       });
+
   };
  
   console.log(state.currentUser.id);

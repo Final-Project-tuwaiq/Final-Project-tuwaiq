@@ -131,12 +131,12 @@
   height: 30px;
   border: 1px solid #ecece7;
   color: #afb1a5;
-  padding: 1%;
+  /* padding: 1%; */
   font-size: 18px;
   align-items: left;
   display: flex;
   text-align: center;
-  padding-left: 8%;
+  padding-left: 4%;
 }
 
 .div {
@@ -180,4 +180,57 @@ progress:after {
   display: inline-block;
   float: left;
   content: attr(value);
+}
+
+
+
+@media screen and (max-width: 960px) {
+
+  .box-container {
+    display: grid;
+    grid-template-columns: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+    grid-gap: 10px 20px;
+  }
+  #container {
+    box-shadow: 0 15px 30px 1px grey;
+    background-image: linear-gradient(60deg, #365b6d 0%, #485563 100%);
+    border-radius: 5px;
+    overflow: hidden;
+    /* margin: 1.5em auto; */
+    height: 250px;
+    width: 400px;
+  }
+  .button-t {
+    background: linear-gradient(to left, #eaec5e2a, #365b6d 80%);
+    width: 100px;
+    height: 20px;
+    border: 1px solid #ecece7;
+    color: #afb1a5;
+    /* padding: 1%; */
+    font-size: 14px;
+    align-items: left;
+    display: flex;
+    text-align: center;
+    padding-left: 4%;
+  }
+  .Title {
+    margin-top: 7%;
+    font-size: 55px;
+    margin-bottom: -3.5%;
+    /* margin-left: 110px; */
+    align-items: center;
+    color: #686962;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .Title span {
+    color: #365b6d;
+    font-size: 50px;
+    font-size: 50px;
+    font-family: "Russo One", sans-serif;
+  }
+
+
 }

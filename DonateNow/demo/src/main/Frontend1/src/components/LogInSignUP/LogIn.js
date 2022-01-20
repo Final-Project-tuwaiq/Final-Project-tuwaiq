@@ -10,10 +10,12 @@ import { useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import jwt_decode from "jwt-decode";
 
+
 import "./Login.css";
 function LogIn() {
   const [userinfo, setUserinfo] = useState("");
   const [password, setPassword] = useState("");
+  const[error,setError]=useState()
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -51,6 +53,10 @@ function LogIn() {
         const decoded = jwt_decode(token);
         console.log(token);
 
+        localStorage.setItem("currentUser",decoded.userName)
+        localStorage.setItem("token",token)
+        localStorage.setItem("isLoggedIn",true)
+        localStorage.setItem("UserType",decoded.roles[0])
         // // add to redux
         const user_action = login(decoded);
         const token_action = addToken(token);
@@ -71,6 +77,7 @@ function LogIn() {
     
       .catch((err) => {
         console.log(err);
+        setError("Username or Password is incorrect")
       });
   };
 
@@ -87,7 +94,6 @@ function LogIn() {
                 <CloseIcon className="Icon-x" />
               </Link>
             </div>
-            {/* <PersonPinIcon className="icon-log" /> */}
 
             <h2 className="title-b">Log In</h2>
             <div className="form-group">
@@ -112,7 +118,10 @@ function LogIn() {
                 placeholder="Enter password"
               />
             </div>
-     <br></br>
+           <p className="p-error">{error}</p> 
+          
+
+     
             <button
               type="button"
               onClick={() => {

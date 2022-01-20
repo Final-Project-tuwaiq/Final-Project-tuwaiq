@@ -1,4 +1,3 @@
-import Navbar from "../Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -6,7 +5,8 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 
 import usersReducer from "../../reducers/Login/reducer";
-// import "./DonationDonor.css";
+import "./DonationDonor.css";
+import NavbarA from "../Navbar/NavbarA";
 
 function DonationDonor() {
   const [data, setData] = useState();
@@ -55,7 +55,7 @@ function DonationDonor() {
 
   return (
     <>
-      <Navbar />
+      <NavbarA />
       <>
         {" "}
         <div className="box-container">
@@ -63,8 +63,7 @@ function DonationDonor() {
             ? data.map((e) => {
                 return (
                   <>
-                    {/* <h1></h1>
-                  <h1> {e.description}</h1> */}
+                
 
                     <div className="card mt-5 border-5 pt-9 active pb-0 px-10">
                       <div className="card-body ">

@@ -14,8 +14,20 @@
   margin-bottom: -4.5%;
   z-index: 999;
 }
+
+.navbarrA {
+  height: 55px;
+  background-color: #e6e6dd;
+
+  display: flex;
+  justify-content: center;
+  top: 0%;
+  align-items: center;
+  position: sticky;
+  margin-bottom: -4.5%;
+  z-index: 999;
+}
 .navbarr.activee {
-  background-color: rgba(27, 44, 59, 0.37);
   background-color: #ecece7;
 }
 .nav-2 {
@@ -227,8 +239,6 @@
     transition: 250ms;
   }
 }
-
-
 
 .dropbtn {
   padding: 16px;

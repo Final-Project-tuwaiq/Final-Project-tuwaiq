@@ -7,7 +7,6 @@
   grid-gap: 10px 20px;
 } */
 
-
 .donationBox {
   width: auto;
   border-radius: 12px;
@@ -15,7 +14,6 @@
   margin-left: 10%;
   margin-right: 10%;
 }
-
 
 .donationBox_s {
   background-color: #365b6d;
@@ -66,20 +64,23 @@ td {
   color: #365b6de0;
 }
 
-
-
 .leaderboard {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 }
 
 .Img-correct {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   border: none;
   margin-left: 120px;
 }
 
-
+.Img-corre {
+  height: 50px;
+  width: 50px;
+  border: none;
+  margin-left: 120px;
+}
 .icon-xd {
   font-size: 1.5rem !important;
   margin-right: 100%;
@@ -87,5 +88,6 @@ td {
   color: #979294;
   -webkit-text-fill-color: transparent;
 }
+
 
 

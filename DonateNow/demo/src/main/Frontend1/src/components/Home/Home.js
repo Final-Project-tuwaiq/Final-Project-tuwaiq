@@ -6,7 +6,7 @@ import Section from "../Statistics/Section";
 import Departments from "../Departments/Departments";
 
 import { useSelector } from "react-redux";
-import Modal from "../Modal";
+
 
 function Home() {
   const state = useSelector((state) => {
@@ -28,8 +28,7 @@ function Home() {
 
       <Header />
       <Section />
-       <Modal/>
-      <Departments />
+          <Departments />
       <Footer />
 
       {/* {state.isLoggedIn && state.UserType === "donor" && <Footer />} */}

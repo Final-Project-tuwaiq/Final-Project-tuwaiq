@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Navbar.css";
 
-function Navbar() {
+function NavbarA() {
   const navigate = useNavigate();
   const [navbar, setNavbar] = useState(false);
 
@@ -43,7 +43,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className={navbar ? "navbarr activee" : "navbarr"}>
+      <nav className={navbar ? "navbarr activee" : "navbarrA"}>
         <div className="header-option"></div>
         <div
           className="nav-2"
@@ -113,10 +113,6 @@ function Navbar() {
                           className="nav-links"
                           onClick={() => {
                             const action = logout();
-                            localStorage.removeItem("currentUser");
-                         localStorage.removeItem("token");
-                         localStorage.removeItem("isLoggedIn");
-                         localStorage.removeItem("UserType");
                             dispatch(action);
                           }}
                         >
@@ -149,10 +145,6 @@ function Navbar() {
                       className="nav-links"
                       onClick={() => {
                         const action = logout();
-                        localStorage.removeItem("currentUser");
-                         localStorage.removeItem("token");
-                         localStorage.removeItem("isLoggedIn");
-                         localStorage.removeItem("UserType");
                         dispatch(action);
                       }}
                     >
@@ -172,4 +164,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarA;

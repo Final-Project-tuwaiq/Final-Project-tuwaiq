@@ -52,12 +52,12 @@ function Footer() {
                     }}
                   />
                   <p className="text-white">
-                   The well being and health of each and every person is very precious and should be guarded and protected.
+                  website online of charities that offer donation pick up service,And donors who make non-cash donations like clothes and other household goods. 
                   </p>
                 </div>
 
                 <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold">Our Service</h6>
+                  <h6 className="text-uppercase fw-bold"> Donations </h6>
                   <hr
                     className="mb-4 mt-0 d-inline-block mx-auto"
                     style={{
@@ -68,27 +68,32 @@ function Footer() {
                   />
                   <p>
                     <a href className="text-white">
-                      Pediatres
+                    Food for Life
                     </a>
                   </p>
                   <p>
                     <a href className="text-white">
-                      Radiology
+                    Furniture
                     </a>
                   </p>
                   <p>
                     <a href className="text-white">
-                      Ophthalmology
+                    Home appliances
                     </a>
                   </p>
                   <p>
                     <a href className="text-white">
-                    Dental
+                    Donate clothes
                     </a>
                   </p>
                   <p>
                     <a href className="text-white">
-                    Family Medicine
+                    Providing water
+                    </a>
+                  </p>
+                  <p>
+                    <a href className="text-white">
+                    Winter essentials
                     </a>
                   </p>
                 </div>

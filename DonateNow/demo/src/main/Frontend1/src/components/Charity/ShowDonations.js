@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import swal from 'sweetalert';
+import NavbarA from "../Navbar/NavbarA";
+
+
 
 
 function ShowDonations() {
@@ -39,30 +42,7 @@ function ShowDonations() {
     headers: { Authorization: `Bearer ${state.token}` },
   };
 
-  // const updatePatient = (e)=>{
-  //   console.log(state.currentUser.id);
-  //   console.log(e.date);
-  //   console.log(e.id);
-  //   const Appointment_id = e.id;
-  //   const patient_id = state.currentUser.id;
-
-  //   addPatient(Appointment_id,patient_id);
-
-  // }
-
-  // const addPatient = (Appointment_id,patient_id)=>{
-  //   axios
-  //   .put(`http://localhost:8080/appointment/${Appointment_id}/patient/${patient_id}`)
-  //   .then((res) => {
-  //     console.log(res.data);
-  //     updateState(Appointment_id);
-
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  // }
+  
 
   
 
@@ -109,66 +89,35 @@ function ShowDonations() {
   const updateState= (Donation_id)=>{
     axios
     .put(`http://localhost:8081/donations/${Donation_id}`,{
-      state:"Waiting"
+      state:"Acceptance"
   })
     .then((res) => {
       console.log(res.data);
+      swal({
+        title: "Donation accepted ",
+        text: ``,
+        icon: "success",
+        button: "ok"
+       
+      })
+      .then(() => {
+        swal(navigate("/"));
+      });
     })
     .catch((err) => {
       console.log(err);
     });
 
-    navigate("/");
+   
 
   }
 
 
-  // const updateState= ()=>{
-  //   axios
-  //   .put(`http://localhost:8081/donations/${id}`, {
-  //     state:"Waiting"
-  // })
-  //   .then((res) => {
-  //     console.log(res.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  //   navigate("/");
-  // }
 
   return (
     <>
-      <Navbar />
-      {/* <div className="flex"></div>
-      <div className="container">
-        <div className="row justify-content-around">
-          {data !== undefined
-            ? data.map((e) => {
-              if(e.state === "Available"){
-                return (
-                  <div
-                    className=" my-5 py-4 Sh-card"
-                    style={{ width: "18rem" }}
-                  >
-                    <div className="card-body text-center">
-                      <h4> The Appointment </h4>
-                      <h4> {Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10) } </h4>
-                      <h6>Date : {e.date}</h6>
-                      <h6>Time : {Math.floor(Math.random() * 12)+": "+Math.floor(Math.random() * 60)+" AM"} </h6>
-                      <p className="text-dep">
-                        <button type="button" className="btn-v"  onClick={()=>{updatePatient(e)}}>
-                          {e.state}
-                        </button>
-                      </p>
-                    </div>
-                  </div>
-                );}
-              })
-            : "Wait"}
-        </div>
-      </div> */}
+      <NavbarA />
+     
       <div>
        
 
@@ -181,6 +130,7 @@ function ShowDonations() {
           </div>
             {data !== undefined
               ? data.map((e) => {
+                if(e.state === "Pending"){
                   return (
                     <div className="donationBox_text">
             <img
@@ -190,7 +140,7 @@ function ShowDonations() {
             />
             <table >
             <td>
-    <tr><span><b>Name:</b></span>{e.donor.firstName}{e.id}</tr>
+    <tr><span><b>Name:</b></span>{e.donor.firstName}</tr>
     <tr><span><b>Quantity:</b></span> {e.quantity}</tr>
     <tr><span><b>Location:</b></span> {e.donor.location}</tr>
   </td>
@@ -201,7 +151,8 @@ function ShowDonations() {
     <tr>
       <div className ="div1"><span><b>description:</b></span>{e.description}
     </div>
-   </tr><tr>Location in hhhhj</tr>
+   </tr>
+   {/* <tr>Location in hhhhj</tr> */}
   </td>
  
  
@@ -211,33 +162,8 @@ function ShowDonations() {
                 <img src="https://www.svgrepo.com/show/52154/check.svg"  />
              </button>
                   </div>
-      {/* {state.isLoggedIn && state.UserType === "User" && (
-                        <button
-                          type="button"
-                          className="btn-b"
-                          onClick={() => {
-                            navigate(`/Department/${e.id}`);
-                          }}
-                        >
-                          Donate
-                          <span className="fas fa-chevron-right"></span>
-                        </button>
-                      )}
-                      {state.isLoggedIn && state.UserType === "Charity" && (
-                        <button
-                          type="button"
-                          className="btn-b"
-                          onClick={() => {
-                            navigate(`/Departments/${e.id}`);
-                          }}
-                        >
-                          Show
-                          <span className="fas fa-chevron-right"></span>
-                        </button>
-                      )} */}
-  
                     </div>
-                  );
+                  );}
                 })
               : "Wait"}
           </div>

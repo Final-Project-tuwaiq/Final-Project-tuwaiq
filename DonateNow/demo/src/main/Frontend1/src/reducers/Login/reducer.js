@@ -1,14 +1,23 @@
+const currentUser = localStorage.getItem("currentUser");
+const token = localStorage.getItem("token");
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+const UserType = localStorage.getItem("UserType");
+
 const initialState = {
-  currentUser: {},
-  isLoggedIn: false,
-  UserType: "",
-  token: undefined,
+  currentUser: currentUser?currentUser:{},
+  isLoggedIn: isLoggedIn?isLoggedIn:false ,
+  UserType:UserType? UserType:"",
+  token: token ? token :undefined,
+
   // roleId: undefined,
 };
 
 const usersReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "LOG_IN":
+      localStorage.setItem("currentUser", JSON.stringify(payload));
+      console.log(payload);
+
       return {
         currentUser: payload,
         isLoggedIn: true,
@@ -16,6 +25,8 @@ const usersReducer = (state = initialState, { type, payload }) => {
         UserType:"",
       };
     case "ADD_TOKEN":
+      localStorage.setItem("token", JSON.stringify(payload));
+
       console.log(payload);
       return {
         currentUser: state.currentUser,

@@ -1,11 +1,11 @@
 
-import Navbar from "../Navbar/Navbar";
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./DonorProfile.css";
 import axios from "axios";
 import usersReducer from "../../reducers/Login/reducer";
+import NavbarA from "../Navbar/NavbarA";
 
 
 
@@ -42,7 +42,7 @@ function DonorProfile() {
   }, []);
   return (
   <>
-  <Navbar/>
+  <NavbarA/>
   {data !== undefined ? (
     <>
       <div className="container emp-profile">

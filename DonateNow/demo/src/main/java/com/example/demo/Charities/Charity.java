@@ -3,6 +3,8 @@ package com.example.demo.Charities;
 import com.example.demo.Departments.Department;
 import com.example.demo.User.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class Charity {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Department> departments = new ArrayList<>();
     @OneToOne (fetch = FetchType.EAGER,optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name ="user_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;

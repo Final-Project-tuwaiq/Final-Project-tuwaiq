@@ -1,9 +1,9 @@
-import Navbar from "../Navbar/Navbar";
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import axios from "axios";
+import NavbarA from "../Navbar/NavbarA";
 
 function CharityProfile() {
   const [data, setData] = useState();
@@ -38,7 +38,7 @@ function CharityProfile() {
 
   return (
     <>
-      <Navbar />
+      <NavbarA />
       {data !== undefined ? (
         <>
           <div className="container emp-profile">

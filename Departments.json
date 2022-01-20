@@ -1,20 +1,34 @@
+
 [
-    {"name":"",
-"description":""
-},
-{
-"name":"",
-"description":" "
-},
-{
-"name":"",
-"description":""
-},
-{
-    "name":"",
-"description":""
-},
-{
-"name":"",
-"description":""
-}]
+    {"name":"Food for Life",
+     "description":"Many needy people need access to monthly food supplies. Your donation support these people.",
+     "img":"https://i.pinimg.com/474x/ff/3e/1c/ff3e1cab6515a38497bc75f434867ddb.jpg"},
+      
+       {"name":"Furniture",
+     "description":"Furniture accepts all types of furniture, ranging from sofas and tables to dressers and housewares.",
+     "img":"https://i.pinimg.com/564x/1f/9b/d9/1f9bd933522272793b54a9beefcc0ce5.jpg"},
+      
+
+    {"name":"home appliances",
+     "description":"Some needy people that lack the minimum electrical appliances to live a comfortable life",
+     "img":"https://i.pinimg.com/564x/84/5d/5d/845d5df087306d7600790af3be90c5ef.jpg"},
+
+{"name":"donate clothes",
+    "description": "Donate clothes, blankets and towels and help those in need.",
+    "img":"https://i.pinimg.com/564x/35/1e/55/351e5551357041c5131a6c24776f2f88.jpg"},
+    
+     {"name":"Winter essentials" ,
+     "description":"providing winter supplies and clothing for poor families.",
+     "img":"https://i.pinimg.com/564x/fc/2a/19/fc2a19cd7e5ad19b8b9870798c2816d1.jpg"},
+
+   {"name":"Providing water",
+     "description":"Providing safe drinking water helps change the lives of many.",
+     "img":"https://i.pinimg.com/564x/15/90/fe/1590fe78a001ca7856bf1d437a958c4b.jpg"}
+
+
+
+
+
+
+   
+]
