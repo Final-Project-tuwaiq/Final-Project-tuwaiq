@@ -184,15 +184,18 @@ const[error,setError]=useState()
               onChange={genderChange}
               name="gender"
               value="Fmale"
+              classNam="PostBtn flex-child"
             />
-            Fmale
+            Fmale.
           </label>
+          
           <label>
             <input
               type="radio"
               onChange={genderChange}
               name="gender"
               value="Male"
+              classNam="PostBtn flex-child"
             />
             Male
           </label>
@@ -200,6 +203,7 @@ const[error,setError]=useState()
       
        
             <br />
+            
              {/* <p className="p-error">kkkk{error}</p> */}
           <button onClick={getUser} type="button" className="button-b">
             Sign Up

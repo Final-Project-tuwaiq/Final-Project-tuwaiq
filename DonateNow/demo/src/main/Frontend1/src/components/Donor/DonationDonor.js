@@ -38,7 +38,7 @@ function DonationDonor() {
 
         {
           axios
-            .get(`http://localhost:8081/donations/donor/${res.data}`, config)
+            .get(`http://localhost:8081/donations/donor/${res.data}`)
             .then((res1) => {
               console.log(res1.data);
               setData(res1.data);
@@ -47,6 +47,7 @@ function DonationDonor() {
               console.log(err);
             });
         }
+        
       })
       .catch((err) => {
         console.log(err);
