@@ -1,5 +1,6 @@
 package com.example.demo.Donations;
 
+import com.example.demo.Charities.Charity;
 import com.example.demo.Departments.Department;
 import com.example.demo.Donors.Donor;
 
@@ -21,6 +22,10 @@ public class Donation {
     @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "charity_id")
+    private Charity charity;
 
     //relationship many to one  between the donations and donor
     @ManyToOne(fetch = FetchType.EAGER, optional = true)
@@ -106,7 +111,13 @@ public class Donation {
         this.department = department;
     }
 
+    public Charity getCharity() {
+        return charity;
+    }
 
+    public void setCharity(Charity charity) {
+        this.charity = charity;
+    }
 
     //use toString
     @Override

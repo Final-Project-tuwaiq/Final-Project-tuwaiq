@@ -1,5 +1,6 @@
 package com.example.demo.Departments;
 
+import com.example.demo.Donations.Donation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path= "departments")
+@CrossOrigin("*")
 public class DepartmentController {
     private final DepartmentService departmentservice;
 
@@ -45,4 +47,13 @@ public class DepartmentController {
     public void deleteDepartment(@PathVariable String id){
         departmentservice.deleteDepartment(id);
     }
+
+
+
+
+
+
+
 }
+
+

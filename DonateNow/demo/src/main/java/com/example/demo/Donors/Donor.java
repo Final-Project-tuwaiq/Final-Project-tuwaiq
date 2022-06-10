@@ -1,4 +1,7 @@
 package com.example.demo.Donors;
+import com.example.demo.User.User;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,25 +12,28 @@ public class Donor {
     private int id;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String phoneNumber;
-    private String password;
     private String location;
     private String gender;
 
 
-
+    @OneToOne (fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name ="user_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user;
 
     public Donor() {
     }
 
     // use Constructor
 
-    public Donor(int id, String firstName, String lastName, String phoneNumber, String password, String location, String gender) {
+    public Donor(int id, String firstName, String lastName, String phoneNumber, String location, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.password = password;
+
         this.location = location;
         this.gender = gender;
     }
@@ -66,12 +72,12 @@ public class Donor {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPassword() {
-        return password;
+    public User getUser() {
+        return user;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getLocation() {
@@ -98,7 +104,6 @@ public class Donor {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
                 ", location='" + location + '\'' +
                 ", gender='" + gender + '\'' +
                 '}';

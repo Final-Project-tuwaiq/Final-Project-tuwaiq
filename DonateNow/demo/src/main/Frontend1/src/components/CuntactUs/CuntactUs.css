@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.div-Countact {
+  background: url("https://i.pinimg.com/564x/b3/a4/0e/b3a40e9c6565d540752873ac47f6e423.jpg")
+    no-repeat top center;
+
+  width: 100%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 611px;
+
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+
+.wrapper {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 550px;
+  background: #e6e6ddd8;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper .title h1 {
+  color: #365b6d;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  display: flex;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg {
+  width: 48%;
+}
+
+.input-fields .input,
+.msg textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #365b6d;
+  padding: 10px;
+  color: #365b6d;
+  width: 100%;
+}
+
+.msg textarea {
+  height: 212px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #365b6d;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #365b6d;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #365b6d;
+}
+
+.btn {
+  background: #365b6d;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-form {
+    flex-direction: column;
+  }
+  .msg textarea {
+    height: 80px;
+  }
+  .input-fields,
+  .msg {
+    width: 100%;
+  }
+}

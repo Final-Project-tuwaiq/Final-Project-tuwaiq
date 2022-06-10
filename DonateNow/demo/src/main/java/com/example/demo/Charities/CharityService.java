@@ -1,6 +1,8 @@
 package com.example.demo.Charities;
 import com.example.demo.Departments.Department;
 import com.example.demo.Departments.DepartmentRepository;
+import com.example.demo.Donations.Donation;
+import com.example.demo.Donations.DonationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -11,11 +13,14 @@ import java.util.List;
 public class CharityService {
     private final charityRepository charityrepository;
     private final DepartmentRepository departmentRepository;
+    private final DonationRepository donationrepository;
+
 
     @Autowired
-    public CharityService(charityRepository charityrepository , DepartmentRepository departmentRepository) {
+    public CharityService(charityRepository charityrepository, DepartmentRepository departmentRepository, DonationRepository donationrepository) {
         this.charityrepository = charityrepository;
         this.departmentRepository=departmentRepository;
+        this.donationrepository = donationrepository;
     }
 
     //get all charity
@@ -25,8 +30,8 @@ public class CharityService {
 
     //get charity
     public Charity getCharity(String id){
-        Integer user_id = Integer.parseInt(id);
-        return charityrepository.findById(user_id).orElse(null);
+        Integer charity_id = Integer.parseInt(id);
+        return charityrepository.findById(charity_id).orElse(null);
     }
 
     //post or add all charity
@@ -65,7 +70,6 @@ public class CharityService {
         if (charity != null) {
             charity.setName(data.getName());
             charity.setPhoneNumber(data.getPhoneNumber());
-            charity.setPassword(data.getPassword());
             charity.setLocation(data.getLocation());
             charityrepository.save(charity);
         }
@@ -73,5 +77,12 @@ public class CharityService {
 
     }
 
+    public Charity getCharityByUser(String userId) {
+        return charityrepository.findByUser_id(Long.parseLong(userId));
+    }
 
+
+    public List<Donation> getCharityDonations(int id) {
+       return  donationrepository.findAllBycharity_id(id);
+    }
 }

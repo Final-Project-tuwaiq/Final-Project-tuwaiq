@@ -28,11 +28,12 @@ public class DonorService {
             donorrepository.save(donors.get(i));}
     }
 
-    //use to post and add one donor
-    public Donor createDonor(Donor donor){
+    //use to post and add one donor //register
+    public Donor createDonor( Donor donor){
         return donorrepository.save(donor);
-
     }
+
+
 
     // use delete o remove user
     public void deleteDonor(String id ){
@@ -49,10 +50,15 @@ public class DonorService {
             donor.setFirstName(data.getFirstName());
             donor.setLastName(data.getLastName());
             donor.setPhoneNumber(data.getPhoneNumber());
-            donor.setPassword(data.getPassword());
+
             donor.setLocation(data.getLocation());
             donorrepository.save(donor);
         }
         return donor;
 
-    }}
+    }
+
+    public Donor getDonorByUser(String userId) {
+        return donorrepository.findByUser_id(Long.parseLong(userId));
+    }
+}

@@ -15,6 +15,7 @@ public class Department {
     private String name;
     private String description;
     private int amount;
+    private String img;
 
     //relationship many to many  between the departments and charity
     @JsonIgnore
@@ -22,11 +23,14 @@ public class Department {
     private Collection<Charity> charities= new ArrayList<>();
 
     // use Constructor
-    public Department(int id, String name, String description, int amount, Collection<Charity> charities) {
+
+
+    public Department(int id, String name, String description, int amount, String img, Collection<Charity> charities) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.amount = amount;
+        this.img = img;
         this.charities = charities;
     }
 
@@ -74,7 +78,16 @@ public class Department {
         this.amount = amount;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     //use toString
+
     @Override
     public String toString() {
         return "Department{" +
@@ -82,6 +95,7 @@ public class Department {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
+                ", img='" + img + '\'' +
                 ", charities=" + charities +
                 '}';
     }

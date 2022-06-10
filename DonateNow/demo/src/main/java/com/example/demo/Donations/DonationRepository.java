@@ -10,4 +10,5 @@ public interface DonationRepository extends JpaRepository<Donation, Integer> {
     List<Donation> findAllBydepartment_id(int department_id);
 
     List<Donation> findAllBydonor_id(int donor_id);
+    List<Donation> findAllBycharity_id (int charity_id);
 }

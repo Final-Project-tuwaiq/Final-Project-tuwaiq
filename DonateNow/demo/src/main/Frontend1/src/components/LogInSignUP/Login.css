@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:wght@700&family=Yanone+Kaffeesatz:wght@600&display=swap");
+
+/* /----------------------------- Login && Sigup -----------------------------\ */
+.background {
+  background-image: linear-gradient(
+      rgba(58, 57, 56, 0.336),
+      rgba(58, 57, 56, 0.301)
+    ),
+    url("../image/000.png");
+  min-height: 50vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+.container-S {
+  display: grid;
+  align-items: left;
+  margin-left: -80%;
+  width: 430px;
+  height: auto;
+  background: #ffffff;
+  padding: 10px 40px;
+}
+.icon-log {
+  font-size: 9rem !important;
+  color: #365b6d;
+  margin-left: 30%;
+  margin-right: 40%;
+}
+.b-login {
+  color: red;
+}
+
+.two-input {
+  display: grid;
+  grid-template-columns: 165px 165px;
+}
+
+.title-b {
+  font-family: "Anton", sans-serif;
+  font-family: "Noto Serif", serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  /* color: rgba(27, 25, 25, 0.856); */
+
+  color: linear-gradient(to left, #eaec5e81, #365b6d);
+}
+.button-b {
+  margin-left: 30%;
+  margin-right: 40%;
+  background: linear-gradient(to left, #eaec5e81, #365b6d 80%);
+  /* background-color: #365B6D; */
+  /* background-color: rgba(27, 25, 25, 0.856); */
+  width: 150px;
+  height: 50px;
+  border-radius: 25px 25px 25px 25px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  border: none;
+  margin-bottom: 5px;
+}
+.p-error {
+  margin-top: 3%;
+  color: #e62a2a;
+  font-size: 14px;
+}
+/* 
+.error-icon{
+  font-size: 1.2rem !important;
+  color: #e41212; */
+
+.Icon-x {
+  color: #365b6d;
+  /* color: #2387b6; */
+}
+.Icon-x-m {
+  margin-left: 100%;
+}
+.Icon-y {
+  color: #469771;
+  margin-left: 100%;
+}
+.m-font {
+  text-align: center;
+  color: rgb(4, 24, 12);
+  font-size: 30px;
+  font-family: "Anton", sans-serif;
+  font-family: "Noto Serif", serif;
+  font-family: "Source Sans 3", sans-serif;
+}
+/* /----------------------------- Login && Sigup -----------------------------\ */
+
+@media only screen and (min-width: 1400px) {
+  p {
+    font-size: 14px;
+  }
+}
+
+.card-block {
+  padding: 1.25rem;
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.card .card-block p {
+  line-height: 25px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.text-muted {
+  color: #919aa3 !important;
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.m-t-40 {
+  margin-top: 20px;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.m-t-40 {
+  margin-top: 20px;
+}
+
+.user-card-full .social-link li {
+  display: inline-block;
+}
+
+.user-card-full .social-link li a {
+  font-size: 20px;
+  margin: 0 10px 0 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-m {
+  color: #1e583d;
+  font-size: 1rem !important;
+  cursor: pointer;
+}
+.icon-n {
+  color: #e62a2a;
+  font-size: 1rem !important;
+  cursor: pointer;
+}
+
+.icon-xx {
+  color: #ffffff71;
+  font-size: 1.5rem !important;
+  margin-right: 100%;
+}
+.icon-z {
+  margin-top: 20%;
+  font-size: 14rem !important;
+  color: #fdfdfdd3;
+}
+.f-w {
+  font-size: 60px;
+  /* background-color: rgba(104, 104, 104, 0.548); */
+  font-family: "Anton", sans-serif;
+  font-family: "Noto Serif", serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+.b-size {
+  color: rgb(56, 56, 56);
+  font-size: 18px;
+}
+
+
+
